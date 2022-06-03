@@ -23,3 +23,43 @@ nav ul a {
 .page-footer {
   padding-top: 0;
 }
+
+.goods-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-image {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.card .card-image img {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card .card-content {
+  margin-bottom: auto;
+}
+
+.card .card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
