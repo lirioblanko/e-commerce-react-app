@@ -1,5 +1,5 @@
 function Footer () {
-    return <footer className="page-footer green lighten-1">
+    return <footer className="page-footer blue-grey darken-2">
         <div className="footer-copyright">
             <div className="container">
                 © { new Date().getFullYear()} E-commerce project. Lirioblanko
