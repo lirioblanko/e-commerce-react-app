@@ -1,0 +1,20 @@
+.cart {
+    display: flex;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+}
+
+@media (min-width: 767px) {
+    .cart {
+        bottom: inherit;
+        top: 7rem;
+        right: 2rem;
+    }
+}
+.cart-quantity {
+
+}
