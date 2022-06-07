@@ -8,6 +8,7 @@
    max-width: 95%;
    border: none;
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   animation: show 500ms ease-in-out;
 }
 
 .basket-title {
@@ -37,4 +38,19 @@
 .basket-close,
 .basket-delete {
    cursor: pointer;
+}
+
+.basket-count {
+   padding: 0 .5rem;
+}
+
+@keyframes show {
+   from {
+      top: 70%;
+      opacity: 0;
+   }
+   to {
+      top: 50%;
+      opacity: 1;
+   }
 }
