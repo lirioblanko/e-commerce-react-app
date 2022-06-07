@@ -5,7 +5,9 @@ function BasketList (props) {
     const {
         order = [],
         handleBasketShow = Function.prototype,
-        removeFromBasket = Function.prototype
+        removeFromBasket = Function.prototype,
+        addQuantity=Function.prototype,
+        removeQuantity=Function.prototype
     } = props;
 
     const totalPrice = order.reduce((sum, el) => {
@@ -19,7 +21,13 @@ function BasketList (props) {
         </li>
         {
             order.length ? order.map(item => {
-                return <BasketItem key={item.mainId} {...item} removeFromBasket={removeFromBasket}/>
+                return <BasketItem
+                    key={item.mainId}
+                    {...item}
+                    removeFromBasket={removeFromBasket}
+                    addQuantity={addQuantity}
+                    removeQuantity={removeQuantity}
+                />
             }) : <li className="collection-item">В корзине нет товаров</li>
         }
         <li className="collection-item basket-title red lighten-2 white-text active">Общая стоимость
