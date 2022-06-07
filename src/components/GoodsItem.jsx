@@ -19,7 +19,7 @@ function GoodsItem (props) {
                     })
                 }
             >Купить</button>
-            <span>{price.finalPrice}</span>
+            <span className='rub'>{price.finalPrice}</span>
         </div>
     </div>
 }
