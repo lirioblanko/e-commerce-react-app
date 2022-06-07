@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useToggle } from '../hooks/useToggle'
 
 import { Preloader } from '../components/Preloader'
 import {GoodsList} from '../components/GoodsList'
@@ -12,10 +13,10 @@ function Main() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
-    const [isBasketShow, setBasketShow] = useState(false);
+    const [isBasketShow, handleBasketShow] = useToggle(false);
     const [alertName, setAlertName] = useState('');
 
-    const addToBasket = (item) => {
+    const addToBasket =  (item) => () => {
         const itemIndex = order.findIndex(orderItem => orderItem.mainId === item.mainId)
 
         if (itemIndex < 0) {
@@ -40,12 +41,12 @@ function Main() {
         setAlertName(item.displayName)
     }
 
-    const removeFromBasket = (itemId) => {
+    const removeFromBasket = (itemId) => () => {
         const newOrder = order.filter(el => el.mainId !== itemId)
         setOrder(newOrder)
     }
 
-    const addQuantity = (itemId) => {
+    const addQuantity = (itemId) => () => {
         const newOrder = order.map(el => {
             if (el.mainId === itemId) {
                const newQuantity = el.quantity + 1;
@@ -61,7 +62,7 @@ function Main() {
         setOrder(newOrder)
     }
 
-    const removeQuantity = (itemId) => {
+    const removeQuantity = (itemId) => () => {
         console.log(itemId)
         const newOrder = order.map(el => {
 
@@ -76,10 +77,6 @@ function Main() {
             }
         })
         setOrder(newOrder)
-    }
-
-    const handleBasketShow = () => {
-        setBasketShow(!isBasketShow)
     }
 
     const closeAlert = () => {
