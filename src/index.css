@@ -15,6 +15,10 @@ nav ul a {
   padding: 0;
 }
 
+.brand-logo {
+  font-size: 1.5rem!important;
+}
+
 .content {
   min-height: calc(100vh - 50px - 64px);
   padding: 1.5rem 0;
