@@ -30,7 +30,7 @@ function Main() {
                         quantity: orderItem.quantity + 1
                     }
                 } else {
-                    return item
+                    return orderItem
                 }
             });
             setOrder(newOrder)
