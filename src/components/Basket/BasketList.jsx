@@ -3,6 +3,9 @@ import './basket.css';
 
 function BasketList (props) {
     const {order = [], handleBasketShow = Function.prototype} = props;
+    const totalPrice = order.reduce((sum, el) => {
+        return sum + el.price.finalPrice * el.quantity
+    }, 0)
 
     return <ul className="collection basket">
         <li className="collection-item basket-title red lighten-2 white-text active">
@@ -14,7 +17,8 @@ function BasketList (props) {
                 return <BasketItem key={item.mainId} {...item} />
             }) : <li className="collection-item">В корзине нет товаров</li>
         }
-        <li className="collection-item basket-title red lighten-2 white-text active">Общая стоимость:</li>
+        <li className="collection-item basket-title red lighten-2 white-text active">Общая стоимость
+        <span className='secondary-content rub'>{totalPrice}</span></li>
     </ul>
 }
 

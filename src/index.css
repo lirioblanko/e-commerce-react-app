@@ -63,3 +63,9 @@ nav ul a {
   align-items: center;
   justify-content: space-between;
 }
+
+.rub::after {
+  content: 'руб';
+  padding-left: .5rem;
+  text-transform: none;
+}

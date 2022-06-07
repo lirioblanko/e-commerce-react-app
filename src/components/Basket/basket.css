@@ -15,6 +15,25 @@
    font-weight: bold;
 }
 
+.basket-item{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+
+.basket-col {
+   width: 100px;
+   display: flex;
+   align-items: flex-start;
+}
+
+.basket-col:first-child {
+   margin-right: auto;
+   width: fit-content;
+   max-width: 50%;
+}
+
 .basket-close,
 .basket-delete {
    cursor: pointer;
