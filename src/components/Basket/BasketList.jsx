@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { BasketItem } from './BasketItem'
 import './basket.css';
 
@@ -10,9 +11,13 @@ function BasketList (props) {
         removeQuantity=Function.prototype
     } = props;
 
-    const totalPrice = order.reduce((sum, el) => {
-        return sum + el.price.finalPrice * el.quantity
-    }, 0)
+    const totalPrice = useMemo(() => {
+        return (
+            order.reduce((sum, el) => {
+                return sum + el.price.finalPrice * el.quantity
+            }, 0)
+        )
+    }, [order])
 
     return <ul className="collection basket">
         <li className="collection-item basket-title red lighten-2 white-text active">
