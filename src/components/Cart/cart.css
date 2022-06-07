@@ -8,13 +8,28 @@
     padding: 1rem;
 }
 
+.cart-toast-container {
+    height: fit-content;
+    display: flex;
+    position: fixed;
+    top: inherit;
+    bottom: 8rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    max-width: 300px;
+}
+
 @media (min-width: 767px) {
     .cart {
         bottom: inherit;
         top: 7rem;
         right: 2rem;
     }
-}
-.cart-quantity {
-
+    .cart-toast-container {
+        bottom: inherit;
+        top: 11rem;
+        right: 2rem;
+        max-width: 100%;
+    }
 }

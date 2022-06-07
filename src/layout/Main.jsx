@@ -4,14 +4,16 @@ import { Preloader } from '../components/Preloader'
 import {GoodsList} from '../components/GoodsList'
 import {Cart} from '../components/Cart/Cart'
 import {BasketList} from "../components/Basket/BasketList";
+import {Alert} from "../components/Alert";
 
 import {api} from '../services/Api'
 
 function Main() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [order, setOrder] = useState([])
-    const [isBasketShow, setBasketShow] = useState(false)
+    const [order, setOrder] = useState([]);
+    const [isBasketShow, setBasketShow] = useState(false);
+    const [alertName, setAlertName] = useState('');
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.mainId === item.mainId)
@@ -35,6 +37,7 @@ function Main() {
             });
             setOrder(newOrder)
         }
+        setAlertName(item.displayName)
     }
 
     const removeFromBasket = (itemId) => {
@@ -79,6 +82,10 @@ function Main() {
         setBasketShow(!isBasketShow)
     }
 
+    const closeAlert = () => {
+        setAlertName('')
+    }
+
     useEffect(() => {
         api.shop.getAll()
             .then(data => {
@@ -93,6 +100,12 @@ function Main() {
     return (
         <main className='container content'>
             <Cart  quantity = {order.length} handleBasketShow={handleBasketShow}/>
+            {
+                alertName && <Alert
+                    name={alertName}
+                    closeAlert={closeAlert}
+                />
+            }
             {
                 isBasketShow && <BasketList
                     order={order}
